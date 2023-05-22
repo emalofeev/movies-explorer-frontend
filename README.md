@@ -25,4 +25,4 @@
 
 Frontend https://malofeevdiploma.nomoredomains.monster/
 
-Макет https://disk.yandex.ru/d/2SXXjpXNHizmyQ
+Макет https://disk.yandex.ru/d/t-tcz-z3sWleFQ
