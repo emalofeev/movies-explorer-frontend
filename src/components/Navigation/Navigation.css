@@ -1,0 +1,34 @@
+.navigation {
+  display: flex;
+}
+
+.navigation__link_register {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  text-decoration: none;
+  margin: 29px 30px 29px 0;
+}
+
+.navigation__link_login {
+  position: relative;
+  width: 76px;
+  height: 32px;
+  background-color: #3ddc84;
+  border-radius: 3px;
+  margin: 21px 70px 21px 0;
+}
+
+.navigation__link_login-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000;
+  text-decoration: none;
+}
