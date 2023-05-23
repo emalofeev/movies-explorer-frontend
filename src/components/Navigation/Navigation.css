@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.navigation__link_register {
+.navigation__link-register {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -11,7 +11,7 @@
   margin: 29px 30px 29px 0;
 }
 
-.navigation__link_login {
+.navigation__link-login {
   position: relative;
   width: 76px;
   height: 32px;
@@ -20,7 +20,7 @@
   margin: 21px 70px 21px 0;
 }
 
-.navigation__link_login-text {
+.navigation__link-text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,4 +31,28 @@
   line-height: 16px;
   color: #000;
   text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__link-login {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navigation__link-login {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+    margin: 24px 14px 24px 0;
+  }
+  .navigation__link-register {
+    font-size: 10px;
+    line-height: 16px;
+    margin-right: 14px;
+  }
+
+  .navigation__link-text {
+    font-size: 10px;
+  }
 }

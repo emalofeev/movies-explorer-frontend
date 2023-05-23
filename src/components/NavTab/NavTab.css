@@ -7,21 +7,34 @@
   position: relative;
   width: 96px;
   height: 36px;
-  background-color:#303030;
+  background-color: #303030;
   border-radius: 10px;
   margin: 0 5px;
 }
 
 .navtab__link-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    width: 100%;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    color: #fff;
-    text-decoration: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  width: 100%;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 320px) {
+  .navtab__link {
+    position: relative;
+    width: 82px;
+    height: 26px;
+    border-radius: 6px;
+    margin: 0 3px;
   }
+  .navtab__link-text {
+    font-size: 10px;
+  }
+}
