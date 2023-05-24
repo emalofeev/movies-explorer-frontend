@@ -6,9 +6,8 @@ import Footer from '../Footer/Footer';
 function Movies() {
   return (
     <>
-      <Header />
-      <main className='main'>
-      </main>
+      <Header isLoggedIn={true} />
+      <main className='movies'></main>
       <Footer />
     </>
   );

@@ -84,7 +84,8 @@
 
   .techs__info-lists {
     grid-template-columns: repeat(auto-fill, 94px);
-    grid-template-rows: repeat(auto-fill, 67px);
+    grid-template-rows: repeat(auto-fill, 57px);
+    grid-row-gap: 10px;
     margin: 83px 0px 0px 10px;
   }
 
@@ -126,7 +127,6 @@
 
   .techs__info-lists {
     margin: 50px 0px -10px 53px;
-    grid-template-rows: repeat(4, 67px);
   }
 
   .techs-info__list {

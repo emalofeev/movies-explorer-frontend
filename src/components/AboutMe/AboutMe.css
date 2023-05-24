@@ -71,7 +71,7 @@
 
 @media screen and (max-width: 768px) {
   .aboutme {
-    padding: 90px 50px;
+    padding: 100px 50px 90px 50px;
   }
 
   .aboutme__container {
@@ -115,7 +115,7 @@
 
 @media screen and (max-width: 700px) {
   .aboutme {
-    padding: 70px 14px;
+    padding: 80px 14px 70px 14px;
   }
 
   .aboutme__title {
