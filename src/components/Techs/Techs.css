@@ -1,6 +1,6 @@
 .techs {
   background-color: #272727;
-  padding: 100px 70px;
+  padding: 100px 70px 90px 70px;
 }
 
 .techs__title {
@@ -45,8 +45,8 @@
 .techs__info-lists {
   display: grid;
   grid-template-columns: repeat(auto-fill, 100px);
-  grid-template-rows: repeat(4, 70px);
-  margin: 100px 210px 100px 225px;
+  grid-template-rows: repeat(auto-fill, 70px);
+  margin: 100px 210px 0 225px;
   padding: 0;
 }
 
@@ -70,7 +70,7 @@
 
 @media screen and (max-width: 768px) {
   .techs {
-    padding: 90px 50px;
+    padding: 90px 50px 80px 50px;
   }
 
   .techs__info-title {
@@ -84,8 +84,8 @@
 
   .techs__info-lists {
     grid-template-columns: repeat(auto-fill, 94px);
-    grid-template-rows: repeat(4, 67px);
-    margin: 83px 0px 90px 10px;
+    grid-template-rows: repeat(auto-fill, 67px);
+    margin: 83px 0px 0px 10px;
   }
 
   .techs-info__list {
@@ -125,7 +125,8 @@
   }
 
   .techs__info-lists {
-    margin: 50px 0px 70px 53px;
+    margin: 50px 0px -10px 53px;
+    grid-template-rows: repeat(4, 67px);
   }
 
   .techs-info__list {
