@@ -1,4 +1,4 @@
-.aboutproject {
+.about-project {
   margin: 110px 70px;
   max-width: 1140px;
   height: 388px;
@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-.aboutproject__title {
+.about-project__title {
   height: 65px;
   font-weight: 400;
   font-size: 22px;
@@ -17,7 +17,7 @@
   margin: 0;
 }
 
-.aboutproject__info {
+.about-project__info {
   height: 270px;
   display: flex;
   flex-direction: row;
@@ -25,7 +25,7 @@
   column-gap: 51px;
 }
 
-.aboutproject__info-title {
+.about-project__info-title {
   max-width: 550px;
   font-weight: 400;
   font-size: 20px;
@@ -35,7 +35,7 @@
   margin: 0;
 }
 
-.aboutproject__info-text {
+.about-project__info-text {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -43,37 +43,37 @@
   margin-top: 26px;
 }
 
-.aboutproject__diagram {
+.about-project__diagram {
   display: flex;
   flex-direction: row;
   max-width: 1140px;
 }
 
-.aboutproject__diagram-back {
+.about-project__diagram-back {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.aboutproject__diagram-backcolor {
+.about-project__diagram-backcolor {
   width: 228px;
   height: 36px;
   background-color: #3ddc84;
 }
 
-.aboutproject__diagram-front {
+.about-project__diagram-front {
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: center;
 }
 
-.aboutproject__diagram-frontcolor {
+.about-project__diagram-frontcolor {
   height: 36px;
   background-color: #303030;
 }
 
-.aboutproject__diagram-backtext {
+.about-project__diagram-backtext {
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
@@ -81,7 +81,7 @@
   margin: 9px 0;
 }
 
-.aboutproject__diagram-name {
+.about-project__diagram-name {
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
@@ -89,7 +89,7 @@
   margin: 14px 0 0 0;
 }
 
-.aboutproject__diagram-fronttext {
+.about-project__diagram-fronttext {
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
@@ -98,80 +98,80 @@
 }
 
 @media screen and (max-width: 768px) {
-  .aboutproject {
+  .about-project {
     margin: 90px 50px;
     max-width: 668px;
     height: 405px;
   }
-  .aboutproject__info {
+  .about-project__info {
     height: 270px;
     column-gap: 40px;
   }
 
-  .aboutproject__info-text {
+  .about-project__info-text {
     font-size: 12px;
     line-height: 18px;
     margin-top: 22px;
   }
 
-  .aboutproject__diagram-backcolor {
+  .about-project__diagram-backcolor {
     width: 140px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .aboutproject {
+  .about-project {
     margin: 70px 18px;
     max-width: 284px;
     height: 502px;
   }
 
-  .aboutproject__info {
+  .about-project__info {
     height: 405px;
     display: flex;
     flex-direction: column;
   }
 
-  .aboutproject__info-text {
+  .about-project__info-text {
     font-size: 11px;
     line-height: 16px;
   }
 
-  .aboutproject__diagram-backtext {
+  .about-project__diagram-backtext {
     font-size: 11px;
     line-height: 13px;
     margin-top: 13px;
   }
 
-  .aboutproject__diagram-name {
+  .about-project__diagram-name {
     font-size: 11px;
     line-height: 13px;
     margin-top: 10px;
   }
 
-  .aboutproject__diagram-fronttext {
+  .about-project__diagram-fronttext {
     font-size: 11px;
     line-height: 13px;
     margin-top: 13px;
   }
 
-  .aboutproject__diagram-backcolor {
+  .about-project__diagram-backcolor {
     width: 100px;
   }
 
-  .aboutproject__title {
+  .about-project__title {
     font-size: 18px;
     line-height: 21.78px;
     height: 50px;
   }
 
-  .aboutproject__info-title {
+  .about-project__info-title {
     font-size: 18px;
     line-height: 22px;
     margin-top: -10px;
   }
 
-  .aboutproject__info-text {
+  .about-project__info-text {
     font-size: 12px;
     line-height: 18px;
     margin-top: 16px;
@@ -179,11 +179,11 @@
     line-height: 16px;
   }
 
-  .aboutproject__info-time {
+  .about-project__info-time {
     margin-top: 55px;
   }
 
-  .aboutproject__diagram {
+  .about-project__diagram {
     margin-top: -85px;
   }
 }

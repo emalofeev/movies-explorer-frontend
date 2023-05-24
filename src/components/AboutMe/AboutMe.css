@@ -1,9 +1,9 @@
-.aboutme {
+.about-me {
   background-color: #202020;
   padding: 110px 70px;
 }
 
-.aboutme__title {
+.about-me__title {
   margin: 0;
   padding-bottom: 23px;
   border-bottom: 1px solid #dadada;
@@ -14,19 +14,19 @@
   color: #fff;
 }
 
-.aboutme__container {
+.about-me__container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   height: 427px;
 }
 
-.aboutme__container-text {
+.about-me__container-text {
   max-width: 600px;
   height: 326px;
 }
 
-.aboutme__container-name {
+.about-me__container-name {
   font-weight: 400;
   font-size: 50px;
   line-height: 58px;
@@ -35,7 +35,7 @@
   margin: 66px 0 0 0;
 }
 
-.aboutme__container-about {
+.about-me__container-about {
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
@@ -44,7 +44,7 @@
   margin: 18px 0 26px;
 }
 
-.aboutme__container-history {
+.about-me__container-history {
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
@@ -53,7 +53,7 @@
   margin-bottom: 100px;
 }
 
-.aboutme__container-link {
+.about-me__container-link {
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -61,7 +61,7 @@
   color: #ffffff;
 }
 
-.aboutme__photo {
+.about-me__photo {
   width: 270px;
   height: 327px;
   object-fit: cover;
@@ -70,29 +70,29 @@
 }
 
 @media screen and (max-width: 768px) {
-  .aboutme {
+  .about-me {
     padding: 100px 50px 90px 50px;
   }
 
-  .aboutme__container {
+  .about-me__container {
     height: 397px;
   }
 
-  .aboutme__container-text {
+  .about-me__container-text {
     max-width: 364px;
     height: 306px;
   }
 
-  .aboutme__container-text {
+  .about-me__container-text {
     min-width: 350px;
   }
 
-  .aboutme__container-name {
+  .about-me__container-name {
     font-size: 40px;
     line-height: 40px;
   }
 
-  .aboutme__container-about {
+  .about-me__container-about {
     font-size: 12px;
     line-height: 18px;
     color: #fff;
@@ -100,70 +100,70 @@
     margin: 16px 0 20px;
   }
 
-  .aboutme__container-history {
+  .about-me__container-history {
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     margin-bottom: 87px;
   }
 
-  .aboutme__photo {
+  .about-me__photo {
     width: 255px;
     height: 307px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .aboutme {
+  .about-me {
     padding: 80px 14px 70px 14px;
   }
 
-  .aboutme__title {
+  .about-me__title {
     padding-bottom: 28px;
     font-size: 18px;
     line-height: 22px;
   }
 
-  .aboutme__container {
+  .about-me__container {
     display: flex;
     flex-direction: column;
     height: 653px;
     align-items: center;
   }
 
-  .aboutme__photo {
+  .about-me__photo {
     order: -1;
   }
 
-  .aboutme__container-text {
+  .about-me__container-text {
     max-width: 364px;
     height: 306px;
   }
 
-  .aboutme__container-text {
+  .about-me__container-text {
     min-width: 100px;
     width: 292px;
   }
 
-  .aboutme__container-name {
+  .about-me__container-name {
     font-size: 30px;
     line-height: 36px;
     margin-top: 40px;
   }
 
-  .aboutme__container-about {
+  .about-me__container-about {
     font-size: 11px;
     line-height: 16px;
     margin: 20px 0;
   }
 
-  .aboutme__container-history {
+  .about-me__container-history {
     font-size: 11px;
     line-height: 16px;
     margin-bottom: 40px;
   }
 
-  .aboutme__photo {
+  .about-me__photo {
     width: 292px;
     height: 352px;
     margin: 60px 0 0 0;
