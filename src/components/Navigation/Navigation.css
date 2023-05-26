@@ -230,4 +230,11 @@
   .navigation__link-text {
     font-size: 10px;
   }
+
+  .navigation__burger-button {
+    width: 36px;
+    background-size: contain;
+    margin-right: 17px;
+    margin-top: 19px;
+  }
 }

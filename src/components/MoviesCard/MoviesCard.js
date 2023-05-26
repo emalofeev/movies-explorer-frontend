@@ -7,13 +7,13 @@ function MoviesCard({ movieImage, movieName, movieTime }) {
   const location = useLocation().pathname;
   const isMovies = location === '/movies';
 
-  const handleLike = () => {
+  function handleLike() {
     if (isLiked) {
       setIsLiked(false);
     } else {
       setIsLiked(true);
     }
-  };
+  }
 
   return (
     <article className='movies-card'>
@@ -30,7 +30,11 @@ function MoviesCard({ movieImage, movieName, movieTime }) {
             onClick={handleLike}
           ></button>
         ) : (
-          <button className='movies-card__item-delete' type='button' aria-label='Удалить'></button>
+          <button
+            className='movies-card__item-delete'
+            type='button'
+            aria-label='Удалить'
+          ></button>
         )}
       </div>
       <p className='movie-card__time'>{movieTime}</p>
