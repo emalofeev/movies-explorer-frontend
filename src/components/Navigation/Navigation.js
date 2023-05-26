@@ -64,7 +64,7 @@ function Navigation({ isLoggedIn }) {
               Фильмы
             </Link>
             <Link to='/saved-movies' className='navigation__link-saved'>
-              Сохранённый фильмы
+              Сохранённые фильмы
             </Link>
             <Link to='/profile' className='navigation__link-profile'>
               <p className='navigation__link-account'>Аккаунт</p>

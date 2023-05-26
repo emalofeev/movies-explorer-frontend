@@ -22,6 +22,13 @@ function SearchForm() {
           <img className='search-form__find' src={find} alt='Кнопка поиска' />
         </button>
       </form>
+      <div className='search-form__short'>
+        <label class='search-form__switch'>
+          <input type='checkbox' />
+          <span class='search-form__slider'></span>
+        </label>
+        <p className='search-form__short-film'>Короткометражки</p>
+      </div>
     </section>
   );
 }
