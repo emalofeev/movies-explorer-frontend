@@ -51,6 +51,11 @@
   margin: 208px auto 13px;
 }
 
+.profile__menu:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .profile__menu_exit {
   color: #ee3465;
   margin: 0;
@@ -71,15 +76,15 @@
 }
 
 @media screen and (max-width: 320px) {
-    .profile__title {
-      margin: 70px auto 71px;
-    }
-  
-    .profile__menu {
-      margin-top: 366px;
-    }
-  
-    .profile__menu_exit {
-      margin: 0;
-    }
+  .profile__title {
+    margin: 70px auto 71px;
   }
+
+  .profile__menu {
+    margin-top: 366px;
+  }
+
+  .profile__menu_exit {
+    margin: 0;
+  }
+}

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function MoviesCard({ movieImage, movieName, movieTime }) {
-  const [isLiked, setIsLiked] = useState();
+  const [isLiked, setIsLiked] = useState(false);
   const location = useLocation().pathname;
   const isMovies = location === '/movies';
 

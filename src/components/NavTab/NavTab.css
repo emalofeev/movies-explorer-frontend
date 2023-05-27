@@ -26,7 +26,7 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 405px) {
   .navtab__link {
     position: relative;
     width: 82px;
