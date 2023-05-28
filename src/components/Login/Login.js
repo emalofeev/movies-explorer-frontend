@@ -7,13 +7,18 @@ function Login() {
   return (
     <section className='login'>
       <div className='login__container'>
-        <img className='login__logo' alt='Лого' src={logo} />
+        <Link to='/' className='login__link'>
+          <img className='login__logo' alt='Лого' src={logo} />
+        </Link>
         <h1 className='login__title'>Рады видеть!</h1>
         <form className='login__form'>
           <div className='login__input'>
             <label className='login__label'>E-mail</label>
             <input
               className='login__input-text'
+              name='email'
+              type='email'
+              placeholder='Email'
               value='pochta@yandex.ru'
               required
             />
@@ -22,6 +27,9 @@ function Login() {
             <label className='login__label'>Пароль</label>
             <input
               className='login__input-text login__input-text_error'
+              name='password'
+              type='password'
+              placeholder='Пароль'
               required
             />
           </div>

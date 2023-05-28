@@ -113,7 +113,7 @@
   cursor: pointer;
 }
 
-.navigation__burger-button_close:hover {
+.navigation__burger-close:hover {
   opacity: 0.6;
   cursor: pointer;
 }

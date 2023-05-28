@@ -21,7 +21,7 @@
   font-size: 24px;
   line-height: 29px;
   color: #fff;
-  margin: 40px 0 40px;
+  margin: 40px 0 38px;
 }
 
 .login__input {
@@ -101,6 +101,10 @@
   .login__question {
     margin-bottom: 232px;
   }
+
+  .login__title {
+    margin: 36px 0 39px;
+  }
 }
 
 @media screen and (max-width: 605px) {
@@ -114,7 +118,7 @@
   }
 
   .login__title {
-    margin: 50px 0 80px;
+    margin: 47px 0 80px;
   }
 
   .login__form {

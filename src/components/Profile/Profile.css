@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 30px;
+  margin: 0 30px 70px;
 }
 
 .profile__title {
@@ -62,6 +62,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .profile {
+    margin-bottom: 269px;
+  }
+
   .profile__title {
     margin: 236px auto 86px;
   }
@@ -76,6 +80,10 @@
 }
 
 @media screen and (max-width: 320px) {
+  .profile {
+    margin-bottom: 40px;
+  }
+
   .profile__title {
     margin: 70px auto 71px;
   }
