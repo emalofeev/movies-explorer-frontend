@@ -1,9 +1,11 @@
 import './Navigation.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 function Navigation({ isLoggedIn }) {
   const [isBurger, setIsBurger] = useState(false);
+  const location = useLocation().pathname;
+  const isMovies = location === '/movies';
 
   const handleBurger = () => {
     if (isBurger) {
@@ -47,10 +49,20 @@ function Navigation({ isLoggedIn }) {
               <Link to='/' className='navigation__link-home'>
                 Главная
               </Link>
-              <Link to='/movies' className='navigation__link-films'>
+              <Link
+                to='/movies'
+                className={`navigation__link-films ${
+                  isMovies && 'navigation__link-films_active'
+                }`}
+              >
                 Фильмы
               </Link>
-              <Link to='/saved-movies' className='navigation__link-saved'>
+              <Link
+                to='/saved-movies'
+                className={`navigation__link-saved ${
+                  !isMovies && 'navigation__link-saved_active'
+                }`}
+              >
                 Сохранённые фильмы
               </Link>
               <Link to='/profile' className='navigation__link-profile'>

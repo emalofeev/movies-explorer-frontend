@@ -42,6 +42,11 @@
   transform: translate(0, -4px);
 }
 
+.movies-card__item-like:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .movies-card__item-like_active {
   background-image: url(../../images/like.svg);
 }
@@ -66,6 +71,11 @@
   border: none;
   padding: 0;
   transform: translate(0, -4px);
+}
+
+.movies-card__item-delete:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

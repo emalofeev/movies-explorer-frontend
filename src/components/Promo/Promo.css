@@ -17,7 +17,7 @@
   font-size: calc((100vw - 768px) / (1280 - 768) * (50 - 40) + 40px);
   line-height: 58px;
   color: #fff;
-  letter-spacing: -0.12rem;
+  letter-spacing: -0.04em;
   margin: 0;
   padding: 160px 235px 151px;
 }
@@ -36,7 +36,7 @@
     height: 834px;
   }
   .promo__title {
-    max-width: 680px;
+    max-width: 670px;
     max-height: 104px;
     font-size: calc((100vw - 320px) / (768 - 320) * (40 - 29) + 29px);
     line-height: 52px;
