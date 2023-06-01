@@ -5,6 +5,11 @@
   margin-top: 70px;
 }
 
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
 .login__container {
   display: flex;
   flex-direction: column;
@@ -27,7 +32,8 @@
 .login__input {
   display: flex;
   flex-direction: column;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
+  gap: 8px;
 }
 
 .login__label {
@@ -35,7 +41,6 @@
   font-size: 10px;
   line-height: 12px;
   color: #8b8b8b;
-  margin-bottom: 10px;
 }
 
 .login__input-text {
@@ -57,6 +62,19 @@
   cursor: pointer;
 }
 
+.login__input-text_error {
+  color: #ee3465;
+}
+
+.login__text-error {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+  max-width: 396px;
+  height: 0;
+}
+
 .login__button {
   font-weight: 500;
   font-size: 14px;
@@ -65,12 +83,17 @@
   width: 100%;
   height: 45px;
   margin: 158px 0 3px;
-  background-color: #4285f4;
+  background-color: #8b8b8b;
   border: none;
   border-radius: 3px;
 }
 
-.login__button:hover {
+
+.login__button_active {
+  background-color: #4285f4;
+}
+
+.login__button_active:hover {
   opacity: 0.6;
   cursor: pointer;
 }
@@ -125,7 +148,7 @@
     width: 100%;
   }
   .login__question {
-    margin-bottom: 30px;
+    margin: 25px 0 30px;
   }
 
   .login__input-text {
@@ -146,5 +169,13 @@
   .login__question-link {
     font-size: 12px;
     line-height: 15px;
+  }
+
+  .login__text-error {
+    max-width: 243px;
+  }
+
+  .login__input {
+    margin-bottom: 40px;
   }
 }

@@ -1,4 +1,4 @@
-.profile {
+.profile__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +37,14 @@
   font-size: 11px;
   line-height: 13px;
   color: #fff;
+  border: none;
+  background-color: transparent;
+  text-align: right;
+}
+
+.profile__text:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__menu {
@@ -62,7 +70,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .profile {
+  .profile__form {
     margin-bottom: 269px;
   }
 
@@ -80,7 +88,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .profile {
+  .profile__form {
     margin-bottom: 40px;
   }
 
