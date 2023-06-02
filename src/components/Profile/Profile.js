@@ -68,7 +68,7 @@ function Profile({
               maxLength='30'
               pattern={'^[а-яА-ЯёЁa-zA-Z0-9]+$'}
               placeholder='Имя'
-              value={values.name || currentUser.name || ''}
+              value={values.name || ''}
               onChange={handleChange}
               required
             ></input>
@@ -84,7 +84,7 @@ function Profile({
               name='email'
               type='email'
               placeholder='Email'
-              value={values.email || currentUser.email || ''}
+              value={values.email || ''}
               onChange={handleChange}
               required
             ></input>

@@ -90,6 +90,11 @@
   margin-top: 25px;
 }
 
+.profile__menu_exit:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .profile__form {
     margin-bottom: 269px;

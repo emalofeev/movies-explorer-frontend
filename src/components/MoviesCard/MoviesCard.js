@@ -15,6 +15,12 @@ function MoviesCard({ movieImage, movieName, movieTime }) {
     }
   }
 
+  function getTimeFromMins(mins) {
+    let hours = Math.trunc(mins / 60);
+    let minutes = mins % 60;
+    return hours + 'ч ' + minutes + 'м';
+  }
+
   return (
     <article className='movies-card'>
       <img className='movies-card__image' alt={movieName} src={movieImage} />
@@ -37,7 +43,7 @@ function MoviesCard({ movieImage, movieName, movieTime }) {
           ></button>
         )}
       </div>
-      <p className='movie-card__time'>{movieTime}</p>
+      <p className='movie-card__time'>{getTimeFromMins(movieTime)}</p>
     </article>
   );
 }

@@ -11,12 +11,14 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as mainApi from '../../utils/MainApi';
+import * as moviesApi from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [errorStatus, setErrorStatus] = useState('');
+  const [movies, setMovies] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -75,7 +77,7 @@ function App() {
 
   function handleErrorStatus() {
     setErrorStatus('');
-  };
+  }
 
   function handleSignOut() {
     localStorage.removeItem('jwt');
@@ -83,13 +85,31 @@ function App() {
     navigate('/');
   }
 
+  useEffect(() => {
+    if (loggedIn) {
+      moviesApi.getMovies()
+        .then((movies) => {
+          setMovies(movies);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [loggedIn]);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
         <Route path='/' element={<Main loggedIn={loggedIn} />} />
         <Route
           path='/movies'
-          element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />}
+          element={
+            <ProtectedRoute
+              element={Movies}
+              loggedIn={loggedIn}
+              movies={movies}
+            />
+          }
         />
         <Route
           path='/saved-movies'
