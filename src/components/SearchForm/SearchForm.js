@@ -23,9 +23,9 @@ function SearchForm() {
         </button>
       </form>
       <div className='search-form__short'>
-        <label class='search-form__switch'>
+        <label className='search-form__switch'>
           <input type='checkbox' />
-          <span class='search-form__slider'></span>
+          <span className='search-form__slider'></span>
         </label>
         <p className='search-form__short-film'>Короткометражки</p>
       </div>

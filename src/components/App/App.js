@@ -65,11 +65,17 @@ function App() {
       .editProfile({ email, name })
       .then((res) => {
         setCurrentUser(res);
+        setErrorStatus('200');
       })
       .catch((err) => {
         console.log(err);
+        setErrorStatus(err);
       });
   }
+
+  function handleErrorStatus() {
+    setErrorStatus('');
+  };
 
   function handleSignOut() {
     localStorage.removeItem('jwt');
@@ -80,7 +86,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
-        <Route path='/' element={<Main />} />
+        <Route path='/' element={<Main loggedIn={loggedIn} />} />
         <Route
           path='/movies'
           element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />}
@@ -96,7 +102,9 @@ function App() {
               element={Profile}
               loggedIn={loggedIn}
               handleSignOut={handleSignOut}
-              onUpdateUser={handleUpdateUser}
+              handleUpdateUser={handleUpdateUser}
+              errorStatus={errorStatus}
+              handleErrorStatus={handleErrorStatus}
             />
           }
         />
