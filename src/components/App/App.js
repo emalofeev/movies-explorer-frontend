@@ -11,14 +11,12 @@ import Login from '../Login/Login';
 import NotFound from '../NotFound/NotFound';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as mainApi from '../../utils/MainApi';
-import * as moviesApi from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [errorStatus, setErrorStatus] = useState('');
-  const [movies, setMovies] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -75,27 +73,11 @@ function App() {
       });
   }
 
-  function handleErrorStatus() {
-    setErrorStatus('');
-  }
-
   function handleSignOut() {
     localStorage.removeItem('jwt');
     setLoggedIn(false);
     navigate('/');
   }
-
-  useEffect(() => {
-    if (loggedIn) {
-      moviesApi.getMovies()
-        .then((movies) => {
-          setMovies(movies);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  }, [loggedIn]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -107,7 +89,6 @@ function App() {
             <ProtectedRoute
               element={Movies}
               loggedIn={loggedIn}
-              movies={movies}
             />
           }
         />
@@ -124,7 +105,6 @@ function App() {
               handleSignOut={handleSignOut}
               handleUpdateUser={handleUpdateUser}
               errorStatus={errorStatus}
-              handleErrorStatus={handleErrorStatus}
             />
           }
         />

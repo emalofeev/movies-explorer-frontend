@@ -15,10 +15,9 @@ function Profile({
   handleSignOut,
   handleUpdateUser,
   errorStatus,
-  handleErrorStatus,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const { values, handleChange, errors, isValid, resetForm, setValues } =
+  const { values, handleChange, errors, isValid, setValues } =
     useFormWithValidation();
 
   const errorProfile =
@@ -38,16 +37,11 @@ function Profile({
       email: values.email,
       name: values.name,
     });
-    resetForm();
   };
 
   useEffect(() => {
     setValues(currentUser);
   }, [setValues, currentUser]);
-
-  useEffect(() => {
-    handleErrorStatus('');
-  }, []);
 
   return (
     <>

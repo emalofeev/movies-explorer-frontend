@@ -1,8 +1,8 @@
 import './MoviesCard.css';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
-function MoviesCard({ movieImage, movieName, movieTime }) {
+function MoviesCard({ movieImage, movieName, movieTime, movieTrailer }) {
   const [isLiked, setIsLiked] = useState(false);
   const location = useLocation().pathname;
   const isMovies = location === '/movies';
@@ -23,7 +23,9 @@ function MoviesCard({ movieImage, movieName, movieTime }) {
 
   return (
     <article className='movies-card'>
-      <img className='movies-card__image' alt={movieName} src={movieImage} />
+      <Link className='movies-card__link' to={movieTrailer} target='_blank'>
+        <img className='movies-card__image' alt={movieName} src={movieImage} />{' '}
+      </Link>
       <div className='movies-card__item'>
         <h5 className='movies-card__item-name'>{movieName}</h5>
         {isMovies ? (
