@@ -5,6 +5,7 @@ import { useLocation, Link } from 'react-router-dom';
 function Navigation({ isLoggedIn }) {
   const [isBurger, setIsBurger] = useState(false);
   const location = useLocation().pathname;
+  const isHome = location === '/';
   const isMovies = location === '/movies';
 
   const handleBurger = () => {
@@ -46,7 +47,10 @@ function Navigation({ isLoggedIn }) {
                 type='button'
                 onClick={handleBurger}
               />
-              <Link to='/' className='navigation__link-home'>
+              <Link to='/' 
+              className={`navigation__link-home ${
+                  isHome && 'navigation__link-films_active'
+                }`}>
                 Главная
               </Link>
               <Link
@@ -60,7 +64,7 @@ function Navigation({ isLoggedIn }) {
               <Link
                 to='/saved-movies'
                 className={`navigation__link-saved ${
-                  !isMovies && 'navigation__link-saved_active'
+                  !isMovies && !isHome && 'navigation__link-saved_active'
                 }`}
               >
                 Сохранённые фильмы

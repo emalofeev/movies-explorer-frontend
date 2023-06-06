@@ -8,7 +8,6 @@ import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
 import * as moviesApi from '../../utils/MoviesApi';
 
-
 function Movies() {
   const [isGetMovies, setIsGetMovies] = useState([]);
   const [initialMovies, setInitialMovies] = useState([]);
@@ -113,9 +112,6 @@ function Movies() {
             isMoviesError={isMoviesError}
           />
         )}
-        <button className='movies__button' type='button'>
-          Ещё
-        </button>
       </main>
       <Footer />
     </>

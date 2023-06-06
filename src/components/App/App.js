@@ -85,12 +85,7 @@ function App() {
         <Route path='/' element={<Main loggedIn={loggedIn} />} />
         <Route
           path='/movies'
-          element={
-            <ProtectedRoute
-              element={Movies}
-              loggedIn={loggedIn}
-            />
-          }
+          element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />}
         />
         <Route
           path='/saved-movies'
