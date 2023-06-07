@@ -59,6 +59,10 @@
   color: #fff;
 }
 
+.profile__text-error_unvisible {
+  display: none;
+}
+
 .profile__text:hover {
   opacity: 0.6;
   cursor: pointer;

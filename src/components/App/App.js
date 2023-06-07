@@ -17,6 +17,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [errorStatus, setErrorStatus] = useState('');
+  const [isErrorProfile, setIsErrorProfile] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -64,12 +65,18 @@ function App() {
     mainApi
       .editProfile({ email, name })
       .then((res) => {
+        setIsErrorProfile(false);
         setCurrentUser(res);
         setErrorStatus('200');
       })
       .catch((err) => {
-        console.log(err);
+        setIsErrorProfile(false);
         setErrorStatus(err);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsErrorProfile(true);
+        }, 2000);
       });
   }
 
@@ -100,6 +107,7 @@ function App() {
               handleSignOut={handleSignOut}
               handleUpdateUser={handleUpdateUser}
               errorStatus={errorStatus}
+              isErrorProfile={isErrorProfile}
             />
           }
         />

@@ -15,6 +15,7 @@ function Profile({
   handleSignOut,
   handleUpdateUser,
   errorStatus,
+  isErrorProfile,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const { values, handleChange, errors, isValid, setValues } =
@@ -94,7 +95,7 @@ function Profile({
           <span
             className={`profile__text-error ${
               errorStatus === '200' && 'profile__text-error_none'
-            }`}
+            } ${isErrorProfile && 'profile__text-error_unvisible'}`}
           >
             {errorProfile}
           </span>

@@ -1,7 +1,7 @@
 import './SearchForm.css';
 import icon from '../../images/icon.svg';
 import find from '../../images/find.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFormWithValidation } from '../FormWithValidation/FormWithValidation';
 import { SEARCH_FORM_INPUT_TEXT } from '../../utils/constans';
 
@@ -12,10 +12,14 @@ function SearchForm({ handleSearch, isShortMovies, handleShortMovies }) {
   function handleSubmit(e) {
     e.preventDefault();
     setErrorSearch('');
-    isValid
-      ? handleSearch(values.name)
-      : setErrorSearch(SEARCH_FORM_INPUT_TEXT);
+    if (!values.name) {
+      setErrorSearch(SEARCH_FORM_INPUT_TEXT);
+    } else handleSearch(values.name);
   }
+
+  useEffect(() => {
+    values.name = localStorage.getItem('valueRequest');
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className='search-form'>
@@ -35,7 +39,12 @@ function SearchForm({ handleSearch, isShortMovies, handleShortMovies }) {
           onChange={handleChange}
         />
         <button className='search-form__button' type='submit'>
-          <img className='search-form__find' src={find} alt='Кнопка поиска' />
+          <img
+            className='search-form__find'
+            src={find}
+            alt='Кнопка поиска'
+            disabled={!isValid}
+          />
         </button>
       </form>
       <div className='search-form__short'>
