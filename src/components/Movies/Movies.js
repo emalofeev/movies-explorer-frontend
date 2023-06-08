@@ -93,7 +93,7 @@ function Movies() {
       setIsShortMovies(false);
     }
   }, []);
-
+  
   return (
     <>
       <Header isLoggedIn={true} />

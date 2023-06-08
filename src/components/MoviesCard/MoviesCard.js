@@ -10,7 +10,6 @@ function MoviesCard({
   movieTrailer,
   movie,
   isSavedMovies,
-  deleteMovieClick,
 }) {
   const location = useLocation().pathname;
   const isMovies = location === '/movies';
@@ -34,11 +33,8 @@ function MoviesCard({
         if (i.movieId === movie.id || i.movieId === movie.movieId) {
           mainApi
             .deleteLike(i)
-            .then((res) => {
+            .then(() => {
               setIsLiked(false);
-              if (isSavedMovies) {
-                deleteMovieClick(res);
-              }
             })
             .catch((err) => console.log(err));
         }

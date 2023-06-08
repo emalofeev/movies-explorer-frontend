@@ -69,6 +69,9 @@ function App() {
 
   function handleSignOut() {
     localStorage.removeItem('jwt');
+    localStorage.removeItem('movies');
+    localStorage.removeItem('valueRequest');
+    localStorage.removeItem('stateCheckShortMovies');
     setLoggedIn(false);
     navigate('/');
   }
@@ -92,21 +95,11 @@ function App() {
         <Route path='/' element={<Main loggedIn={loggedIn} />} />
         <Route
           path='/movies'
-          element={
-            <ProtectedRoute
-              element={Movies}
-              loggedIn={loggedIn}
-            />
-          }
+          element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />}
         />
         <Route
           path='/saved-movies'
-          element={
-            <ProtectedRoute
-              element={SavedMovies}
-              loggedIn={loggedIn}
-            />
-          }
+          element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />}
         />
         <Route
           path='/profile'

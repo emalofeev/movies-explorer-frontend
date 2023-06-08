@@ -60,16 +60,15 @@ function MoviesCardList({
       <li className='movies-card-list__items'>
         {isMoviesError ? (
           <p className='movies-card-list__error'>{SEARCH_FORM_ERROR}</p>
-        ) : isSavedMovies ? (
+        ) : isSavedMovies && !isMoviesNotFound ? (
           dataMovies.map((movie) => (
             <MoviesCard
               key={movie.id || movie._id}
               movie={movie}
               movieName={movie.nameRU}
-              movieImage={`https://api.nomoreparties.co/${movie.image.url}`}
+              movieImage={movie.image}
               movieTime={movie.duration}
               movieTrailer={movie.trailerLink}
-              deleteMovieClick={deleteMovieClick}
               isSavedMovies={isSavedMovies}
             />
           ))

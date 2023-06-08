@@ -5,7 +5,12 @@ import { useState, useEffect } from 'react';
 import { useFormWithValidation } from '../FormWithValidation/FormWithValidation';
 import { SEARCH_FORM_INPUT_TEXT } from '../../utils/constans';
 
-function SearchForm({ handleSearch, isShortMovies, handleShortMovies }) {
+function SearchForm({
+  handleSearch,
+  isShortMovies,
+  handleShortMovies,
+  isSavedMovies,
+}) {
   const { values, handleChange, isValid } = useFormWithValidation();
   const [errorSearch, setErrorSearch] = useState('');
 
@@ -19,6 +24,9 @@ function SearchForm({ handleSearch, isShortMovies, handleShortMovies }) {
 
   useEffect(() => {
     values.name = localStorage.getItem('valueRequest');
+    if (isSavedMovies) {
+      values.name = '';
+    }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
