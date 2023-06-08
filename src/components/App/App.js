@@ -20,19 +20,6 @@ function App() {
   const [isErrorProfile, setIsErrorProfile] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      mainApi
-        .checkToken(jwt)
-        .then((res) => {
-          setLoggedIn(true);
-          setCurrentUser(res);
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [loggedIn]);
-
   function handleRegister({ email, password, name }) {
     return mainApi
       .register({ email, password, name })
@@ -86,17 +73,40 @@ function App() {
     navigate('/');
   }
 
+  useEffect(() => {
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      mainApi
+        .checkToken(jwt)
+        .then((res) => {
+          setLoggedIn(true);
+          setCurrentUser(res);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [loggedIn]);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
         <Route path='/' element={<Main loggedIn={loggedIn} />} />
         <Route
           path='/movies'
-          element={<ProtectedRoute element={Movies} loggedIn={loggedIn} />}
+          element={
+            <ProtectedRoute
+              element={Movies}
+              loggedIn={loggedIn}
+            />
+          }
         />
         <Route
           path='/saved-movies'
-          element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} />}
+          element={
+            <ProtectedRoute
+              element={SavedMovies}
+              loggedIn={loggedIn}
+            />
+          }
         />
         <Route
           path='/profile'

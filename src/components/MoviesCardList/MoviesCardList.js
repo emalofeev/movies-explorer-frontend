@@ -3,7 +3,13 @@ import { useState, useEffect } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { SEARCH_FORM_NOT_FOUND, SEARCH_FORM_ERROR } from '../../utils/constans';
 
-function MoviesCardList({ dataMovies, isMoviesNotFound, isMoviesError }) {
+function MoviesCardList({
+  dataMovies,
+  isMoviesNotFound,
+  isMoviesError,
+  isSavedMovies,
+  deleteMovieClick,
+}) {
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const [amountMoviesVisible, setAmountMoviesVisible] = useState(0);
   const [moviesVisible, setMoviesVisible] = useState({
@@ -19,7 +25,7 @@ function MoviesCardList({ dataMovies, isMoviesNotFound, isMoviesError }) {
     window.onresize = () => {
       setTimeout(() => {
         setWidthWindow(window.innerWidth);
-      }, 1000);
+      }, 300);
     };
 
     if (widthWindow >= 1280) {
@@ -54,19 +60,31 @@ function MoviesCardList({ dataMovies, isMoviesNotFound, isMoviesError }) {
       <li className='movies-card-list__items'>
         {isMoviesError ? (
           <p className='movies-card-list__error'>{SEARCH_FORM_ERROR}</p>
+        ) : isSavedMovies ? (
+          dataMovies.map((movie) => (
+            <MoviesCard
+              key={movie.id || movie._id}
+              movie={movie}
+              movieName={movie.nameRU}
+              movieImage={`https://api.nomoreparties.co/${movie.image.url}`}
+              movieTime={movie.duration}
+              movieTrailer={movie.trailerLink}
+              deleteMovieClick={deleteMovieClick}
+              isSavedMovies={isSavedMovies}
+            />
+          ))
         ) : !isMoviesNotFound ? (
-          dataMovies
-            .slice(0, amountMoviesVisible)
-            .map((movie) => (
-              <MoviesCard
-                key={movie.id}
-                movie={movie}
-                movieName={movie.nameRU}
-                movieImage={`https://api.nomoreparties.co/${movie.image.url}`}
-                movieTime={movie.duration}
-                movieTrailer={movie.trailerLink}
-              />
-            ))
+          dataMovies.slice(0, amountMoviesVisible).map((movie) => (
+            <MoviesCard
+              key={movie.id || movie._id}
+              movie={movie}
+              movieName={movie.nameRU}
+              movieImage={`https://api.nomoreparties.co/${movie.image.url}`}
+              movieTime={movie.duration}
+              movieTrailer={movie.trailerLink}
+              isSavedMovies={isSavedMovies}
+            />
+          ))
         ) : (
           <p className='movies-card-list__not-found'>{SEARCH_FORM_NOT_FOUND}</p>
         )}
@@ -76,7 +94,7 @@ function MoviesCardList({ dataMovies, isMoviesNotFound, isMoviesError }) {
           dataMovies.length > amountMoviesVisible
             ? ''
             : 'movies-card-list__button_unvisible'
-        }`}
+        } ${!isSavedMovies ? '' : 'movies-card-list__button_unvisible'}`}
         type='button'
         onClick={addMoreMovies}
       >

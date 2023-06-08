@@ -1,25 +1,65 @@
+import { useState, useEffect } from 'react';
 import './MoviesCard.css';
-import { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import * as mainApi from '../../utils/MainApi';
 
-function MoviesCard({ movieImage, movieName, movieTime, movieTrailer }) {
-  const [isLiked, setIsLiked] = useState(false);
+function MoviesCard({
+  movieImage,
+  movieName,
+  movieTime,
+  movieTrailer,
+  movie,
+  isSavedMovies,
+  deleteMovieClick,
+}) {
   const location = useLocation().pathname;
   const isMovies = location === '/movies';
-
-  function handleLike() {
-    if (isLiked) {
-      setIsLiked(false);
-    } else {
-      setIsLiked(true);
-    }
-  }
+  const [isLiked, setIsLiked] = useState(false);
+  const [dataSavedMovies, setDataSavedMovies] = useState([]);
 
   function getTimeFromMins(mins) {
     let hours = Math.trunc(mins / 60);
     let minutes = mins % 60;
     return hours + 'ч ' + minutes + 'м';
   }
+
+  function handleLikeClick() {
+    if (!isSavedMovies && !isLiked) {
+      mainApi
+        .addLike(movie)
+        .then(() => setIsLiked(true))
+        .catch((err) => console.log(err));
+    } else {
+      dataSavedMovies.forEach((i) => {
+        if (i.movieId === movie.id || i.movieId === movie.movieId) {
+          mainApi
+            .deleteLike(i)
+            .then((res) => {
+              setIsLiked(false);
+              if (isSavedMovies) {
+                deleteMovieClick(res);
+              }
+            })
+            .catch((err) => console.log(err));
+        }
+      });
+    }
+  }
+
+  useEffect(() => {
+    mainApi
+      .getMoviesLiked()
+      .then((res) => {
+        setDataSavedMovies(res);
+      })
+      .catch((err) => console.log(err));
+  }, [isLiked]);
+
+  useEffect(() => {
+    dataSavedMovies.filter(
+      (item) => item.movieId === movie.id && setIsLiked(true)
+    );
+  }, [dataSavedMovies, movie]);
 
   return (
     <article className='movies-card'>
@@ -35,13 +75,14 @@ function MoviesCard({ movieImage, movieName, movieTime, movieTrailer }) {
             }`}
             type='button'
             aria-label='Лайкнуть'
-            onClick={handleLike}
+            onClick={handleLikeClick}
           ></button>
         ) : (
           <button
             className='movies-card__item-delete'
             type='button'
             aria-label='Удалить'
+            onClick={handleLikeClick}
           ></button>
         )}
       </div>
