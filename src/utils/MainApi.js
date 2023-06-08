@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:3000/api/';
+export const baseUrl = 'https://malofeevdiploma.nomoredomains.monster/api/';
 
 const checkResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
