@@ -47,10 +47,12 @@ function Navigation({ isLoggedIn }) {
                 type='button'
                 onClick={handleBurger}
               />
-              <Link to='/' 
-              className={`navigation__link-home ${
+              <Link
+                to='/'
+                className={`navigation__link-home ${
                   isHome && 'navigation__link-films_active'
-                }`}>
+                }`}
+              >
                 Главная
               </Link>
               <Link

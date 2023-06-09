@@ -35,6 +35,11 @@ function MoviesCard({
             .deleteLike(i)
             .then(() => {
               setIsLiked(false);
+              if (isSavedMovies) {
+                const savedMoviesDelete =
+                  document.getElementById('movies-card');
+                savedMoviesDelete.remove();
+              }
             })
             .catch((err) => console.log(err));
         }
@@ -58,7 +63,7 @@ function MoviesCard({
   }, [dataSavedMovies, movie]);
 
   return (
-    <article className='movies-card'>
+    <article id='movies-card' className='movies-card'>
       <Link className='movies-card__link' to={movieTrailer} target='_blank'>
         <img className='movies-card__image' alt={movieName} src={movieImage} />{' '}
       </Link>

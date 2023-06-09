@@ -8,7 +8,6 @@ function MoviesCardList({
   isMoviesNotFound,
   isMoviesError,
   isSavedMovies,
-  deleteMovieClick,
 }) {
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const [amountMoviesVisible, setAmountMoviesVisible] = useState(0);
@@ -73,17 +72,19 @@ function MoviesCardList({
             />
           ))
         ) : !isMoviesNotFound ? (
-          dataMovies.slice(0, amountMoviesVisible).map((movie) => (
-            <MoviesCard
-              key={movie.id || movie._id}
-              movie={movie}
-              movieName={movie.nameRU}
-              movieImage={`https://api.nomoreparties.co/${movie.image.url}`}
-              movieTime={movie.duration}
-              movieTrailer={movie.trailerLink}
-              isSavedMovies={isSavedMovies}
-            />
-          ))
+          dataMovies
+            .slice(0, amountMoviesVisible)
+            .map((movie) => (
+              <MoviesCard
+                key={movie.id || movie._id}
+                movie={movie}
+                movieName={movie.nameRU}
+                movieImage={`https://api.nomoreparties.co/${movie.image.url}`}
+                movieTime={movie.duration}
+                movieTrailer={movie.trailerLink}
+                isSavedMovies={isSavedMovies}
+              />
+            ))
         ) : (
           <p className='movies-card-list__not-found'>{SEARCH_FORM_NOT_FOUND}</p>
         )}

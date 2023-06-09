@@ -63,7 +63,7 @@ function App() {
       .finally(() => {
         setTimeout(() => {
           setIsErrorProfile(true);
-        }, 2000);
+        }, 3000);
       });
   }
 
