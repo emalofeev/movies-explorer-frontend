@@ -15,7 +15,9 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem('loggedIn') || false
+  );
   const [errorStatus, setErrorStatus] = useState('');
   const [isErrorProfile, setIsErrorProfile] = useState(false);
   const navigate = useNavigate();
@@ -38,6 +40,7 @@ function App() {
       .login({ email, password })
       .then((res) => {
         localStorage.setItem('jwt', res.token);
+        localStorage.setItem('loggedIn', true)
         setLoggedIn(true);
         setErrorStatus('');
         navigate('/movies');
@@ -68,10 +71,7 @@ function App() {
   }
 
   function handleSignOut() {
-    localStorage.removeItem('jwt');
-    localStorage.removeItem('movies');
-    localStorage.removeItem('valueRequest');
-    localStorage.removeItem('stateCheckShortMovies');
+    localStorage.clear();
     setLoggedIn(false);
     navigate('/');
   }
