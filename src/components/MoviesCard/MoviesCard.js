@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import * as mainApi from '../../utils/MainApi';
 
 function MoviesCard({
+  movieId,
   movieImage,
   movieName,
   movieTime,
@@ -33,12 +34,10 @@ function MoviesCard({
         if (i.movieId === movie.id || i.movieId === movie.movieId) {
           mainApi
             .deleteLike(i)
-            .then(() => {
+            .then((res) => {
               setIsLiked(false);
               if (isSavedMovies) {
-                const savedMoviesDelete =
-                  document.getElementById('movies-card');
-                savedMoviesDelete.remove();
+                document.getElementById(`${res._id}`).remove();
               }
             })
             .catch((err) => console.log(err));
@@ -63,9 +62,9 @@ function MoviesCard({
   }, [dataSavedMovies, movie]);
 
   return (
-    <article id='movies-card' className='movies-card'>
+    <article id={movieId} className='movies-card'>
       <Link className='movies-card__link' to={movieTrailer} target='_blank'>
-        <img className='movies-card__image' alt={movieName} src={movieImage} />{' '}
+        <img className='movies-card__image' alt={movieName} src={movieImage} />
       </Link>
       <div className='movies-card__item'>
         <h5 className='movies-card__item-name'>{movieName}</h5>

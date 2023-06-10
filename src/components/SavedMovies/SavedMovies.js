@@ -6,6 +6,7 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import * as mainApi from '../../utils/MainApi';
+import { DURATION_SHORT_MOVIES } from '../../utils/constans';
 
 function SavedMovies() {
   const [initialMovies, setInitialMovies] = useState([]);
@@ -15,9 +16,7 @@ function SavedMovies() {
   const [dataSavedMovies, setDataSavedMovies] = useState([]);
 
   function handleSearch(valueRequest) {
-    localStorage.setItem(`valueRequest`, valueRequest);
-    localStorage.setItem(`stateCheckShortMovies`, isShortMovies);
-    handleFilterMovies(filteredMovies, valueRequest, isShortMovies);
+    handleFilterMovies(initialMovies, valueRequest, isShortMovies);
   }
 
   function handleFilterMovies(movies, valueRequest, shortMovies) {
@@ -35,7 +34,9 @@ function SavedMovies() {
       const movieRu = nameRU.toLowerCase();
       const movieEn = nameEN.toLowerCase();
       const userMovie = valueRequest.toLowerCase();
-      const checkShortMovies = shortMovies ? duration <= 40 : true;
+      const checkShortMovies = shortMovies
+        ? duration <= DURATION_SHORT_MOVIES
+        : true;
       return (
         checkShortMovies &&
         (movieRu.includes(userMovie) || movieEn.includes(userMovie))
@@ -44,17 +45,19 @@ function SavedMovies() {
   }
 
   function handleShortMovies() {
-    setIsShortMovies(!isShortMovies);
     if (!isShortMovies) {
-      setFilteredMovies(filterShortMovies(initialMovies));
+      console.log(true)
+      setIsShortMovies(true);
+      setFilteredMovies(filterShortMovies(filteredMovies));
     } else {
-      setFilteredMovies(initialMovies);
+      console.log(false)
+      setIsShortMovies(false);
+      setFilteredMovies(filteredMovies);
     }
-    localStorage.setItem(`stateCheckShortMovies`, !isShortMovies);
   }
 
   function filterShortMovies(movies) {
-    return movies.filter(({ duration }) => duration < 40);
+    return movies.filter(({ duration }) => duration < DURATION_SHORT_MOVIES);
   }
 
   useEffect(() => {
@@ -68,12 +71,12 @@ function SavedMovies() {
 
   useEffect(() => {
     setInitialMovies(dataSavedMovies);
-    if (localStorage.getItem(`stateCheckShortMovies`) === 'true') {
+    if (isShortMovies) {
       setFilteredMovies(filterShortMovies(dataSavedMovies));
     } else {
       setFilteredMovies(dataSavedMovies);
     }
-  }, [setInitialMovies, dataSavedMovies]);
+  }, [setInitialMovies, dataSavedMovies, isShortMovies]);
 
   return (
     <>

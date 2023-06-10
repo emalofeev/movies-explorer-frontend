@@ -79,6 +79,7 @@ function MoviesCardList({
             <MoviesCard
               key={movie.id || movie._id}
               movie={movie}
+              movieId={movie._id}
               movieName={movie.nameRU}
               movieImage={movie.image}
               movieTime={movie.duration}
