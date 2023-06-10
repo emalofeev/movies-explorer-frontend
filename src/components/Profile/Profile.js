@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import './Profile.css';
 import Header from '../Header/Header';
 import { useContext, useEffect } from 'react';
@@ -20,6 +21,7 @@ function Profile({
   const currentUser = useContext(CurrentUserContext);
   const { values, handleChange, errors, isValid, setValues } =
     useFormWithValidation();
+  const [isValidForm, setIsValidForm] = useState(false);
 
   const errorProfile =
     errorStatus === '200'
@@ -39,6 +41,17 @@ function Profile({
       name: values.name,
     });
   };
+
+  useEffect(() => {
+    if (
+      values.name === currentUser.name &&
+      values.email === currentUser.email
+    ) {
+      setIsValidForm(false);
+    } else {
+      setIsValidForm(true);
+    }
+  }, [values.name, values.email, currentUser.name, currentUser.email]);
 
   useEffect(() => {
     setValues(currentUser);
@@ -87,8 +100,10 @@ function Profile({
           <span className='profile__text-error'>{errors.email}</span>
           <button
             type='submit'
-            className={`profile__menu ${isValid && 'profile__menu_active'}`}
-            disabled={!isValid}
+            className={`profile__menu ${
+              isValid && isValidForm && 'profile__menu_active'
+            }`}
+            disabled={!isValid || !isValidForm}
           >
             Редактировать
           </button>

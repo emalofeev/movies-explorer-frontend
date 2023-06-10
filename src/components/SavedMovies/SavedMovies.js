@@ -46,11 +46,9 @@ function SavedMovies() {
 
   function handleShortMovies() {
     if (!isShortMovies) {
-      console.log(true)
       setIsShortMovies(true);
       setFilteredMovies(filterShortMovies(filteredMovies));
     } else {
-      console.log(false)
       setIsShortMovies(false);
       setFilteredMovies(filteredMovies);
     }
