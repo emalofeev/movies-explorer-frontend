@@ -1,7 +1,22 @@
 import './MoviesCardList.css';
 import { useState, useEffect } from 'react';
 import MoviesCard from '../MoviesCard/MoviesCard';
-import { SEARCH_FORM_NOT_FOUND, SEARCH_FORM_ERROR } from '../../utils/constans';
+import {
+  SEARCH_FORM_NOT_FOUND,
+  SEARCH_FORM_ERROR,
+  AMOUNT_MOVIES_BASE_0,
+  AMOUNT_MOVIES_BASE_4,
+  AMOUNT_MOVIES_BASE_5,
+  AMOUNT_MOVIES_BASE_9,
+  AMOUNT_MOVIES_BASE_16,
+  AMOUNT_MOVIES_MORE_0,
+  AMOUNT_MOVIES_MORE_2,
+  AMOUNT_MOVIES_MORE_3,
+  AMOUNT_MOVIES_MORE_4,
+  WIDTH_WINDOW_769,
+  WIDTH_WINDOW_1090,
+  WIDTH_WINDOW_1280,
+} from '../../utils/constans';
 
 function MoviesCardList({
   dataMovies,
@@ -12,8 +27,8 @@ function MoviesCardList({
   const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const [amountMoviesVisible, setAmountMoviesVisible] = useState(0);
   const [moviesVisible, setMoviesVisible] = useState({
-    base: 0,
-    more: 0,
+    base: AMOUNT_MOVIES_BASE_0,
+    more: AMOUNT_MOVIES_MORE_0,
   });
 
   function addMoreMovies() {
@@ -27,32 +42,32 @@ function MoviesCardList({
       }, 300);
     };
 
-    if (widthWindow >= 1280) {
+    if (widthWindow >= WIDTH_WINDOW_1280) {
       setMoviesVisible({
-        base: 16,
-        more: 4,
+        base: AMOUNT_MOVIES_BASE_16,
+        more: AMOUNT_MOVIES_MORE_4,
       });
       setAmountMoviesVisible(moviesVisible.base);
-    } else if (widthWindow >= 1090) {
+    } else if (widthWindow >= WIDTH_WINDOW_1090) {
       setMoviesVisible({
-        base: 9,
-        more: 3,
+        base: AMOUNT_MOVIES_BASE_9,
+        more: AMOUNT_MOVIES_MORE_3,
       });
       setAmountMoviesVisible(moviesVisible.base);
-    } else if (widthWindow >= 769) {
+    } else if (widthWindow >= WIDTH_WINDOW_769) {
       setMoviesVisible({
-        base: 4,
-        more: 2,
+        base: AMOUNT_MOVIES_BASE_4,
+        more: AMOUNT_MOVIES_MORE_2,
       });
       setAmountMoviesVisible(moviesVisible.base);
     } else {
       setMoviesVisible({
-        base: 5,
-        more: 2,
+        base: AMOUNT_MOVIES_BASE_5,
+        more: AMOUNT_MOVIES_MORE_2,
       });
       setAmountMoviesVisible(moviesVisible.base);
     }
-  }, [widthWindow, moviesVisible.base]);
+  }, [widthWindow, moviesVisible.base]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className='movies-card-list'>

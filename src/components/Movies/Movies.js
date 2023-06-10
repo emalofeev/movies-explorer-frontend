@@ -7,6 +7,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
 import * as moviesApi from '../../utils/MoviesApi';
+import { DURATION_SHORT_MOVIES } from '../../utils/constans';
 
 function Movies() {
   const [isGetMovies, setIsGetMovies] = useState([]);
@@ -52,7 +53,9 @@ function Movies() {
       const movieRu = nameRU.toLowerCase();
       const movieEn = nameEN.toLowerCase();
       const userMovie = valueRequest.toLowerCase();
-      const checkShortMovies = shortMovies ? duration <= 40 : true;
+      const checkShortMovies = shortMovies
+        ? duration <= DURATION_SHORT_MOVIES
+        : true;
       return (
         checkShortMovies &&
         (movieRu.includes(userMovie) || movieEn.includes(userMovie))
@@ -71,7 +74,7 @@ function Movies() {
   }
 
   function filterShortMovies(movies) {
-    return movies.filter(({ duration }) => duration < 40);
+    return movies.filter(({ duration }) => duration < DURATION_SHORT_MOVIES);
   }
 
   useEffect(() => {
@@ -102,6 +105,7 @@ function Movies() {
           handleSearch={handleSearch}
           isShortMovies={isShortMovies}
           handleShortMovies={handleShortMovies}
+          isLoading={isLoading}
         />
         {isLoading ? (
           <Preloader />

@@ -10,6 +10,7 @@ function SearchForm({
   isShortMovies,
   handleShortMovies,
   isSavedMovies,
+  isLoading,
 }) {
   const { values, handleChange, isValid } = useFormWithValidation();
   const [errorSearch, setErrorSearch] = useState('');
@@ -45,6 +46,7 @@ function SearchForm({
           placeholder='Фильм'
           value={values.name || ''}
           onChange={handleChange}
+          disabled={isLoading}
         />
         <button className='search-form__button' type='submit'>
           <img
