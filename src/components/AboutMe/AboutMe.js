@@ -1,6 +1,6 @@
 import Portfolio from '../Portfolio/Portfolio';
 import './AboutMe.css';
-import photo from '../../images/photo.png';
+import photo from '../../images/photo.jpg';
 
 function AboutMe() {
   return (
