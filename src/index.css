@@ -1,0 +1,15 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/inter.css);
+
+body {
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 1280px;
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #202020;
+}
+
+a:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

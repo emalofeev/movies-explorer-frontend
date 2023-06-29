@@ -1,0 +1,140 @@
+.profile__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 30px 70px;
+}
+
+.profile__title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #fff;
+  margin: 74px auto 113px;
+}
+
+.profile__name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 410px;
+  width: 100%;
+  border-bottom: 1px solid #424242;
+  padding-bottom: 5px;
+}
+
+.profile__email {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 410px;
+  width: 100%;
+  margin-top: 7px;
+}
+
+.profile__text {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #fff;
+  border: none;
+  background-color: transparent;
+  text-align: right;
+}
+
+.profile__text_error {
+  color: #ee3465;
+}
+
+.profile__text-error {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+  max-width: 396px;
+  height: 0;
+}
+
+.profile__text-error_none {
+  color: #fff;
+}
+
+.profile__text-error_unvisible {
+  display: none;
+}
+
+.profile__text:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.profile__menu {
+  max-width: 410px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #424242;
+  background-color: transparent;
+  border: none;
+  margin: 208px auto 3px;
+}
+
+.profile__menu_active {
+  color: #fff;
+}
+
+.profile__menu_active:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.profile__menu_exit {
+  color: #ee3465;
+  margin-top: 25px;
+}
+
+.profile__menu_exit:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__form {
+    margin-bottom: 269px;
+  }
+
+  .profile__title {
+    margin: 236px auto 86px;
+  }
+
+  .profile__menu {
+    margin-top: 198px;
+  }
+
+  .profile__menu_exit {
+    margin-top: 25px;
+  }
+
+  .profile__email {
+    margin-top: 16px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__form {
+    margin-bottom: 40px;
+  }
+
+  .profile__title {
+    margin: 70px auto 71px;
+  }
+
+  .profile__menu {
+    margin-top: 366px;
+  }
+
+  .profile__menu_exit {
+    margin-top: 30px;
+  }
+}
