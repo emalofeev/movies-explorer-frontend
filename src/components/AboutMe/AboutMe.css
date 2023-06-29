@@ -110,6 +110,8 @@
   .about-me__photo {
     width: 255px;
     height: 307px;
+    object-fit: cover;
+    border-radius: 10px;
   }
 }
 
